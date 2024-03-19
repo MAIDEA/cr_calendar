@@ -100,6 +100,22 @@ final class CrCalendarController<T> extends ChangeNotifier {
     _redrawCalendar();
   }
 
+  /// Update event at index if present.
+  void updateEvent(int indexToUpdate, CalendarEventModel<T> event) {
+    if (events != null && indexToUpdate >= 0 && indexToUpdate < events!.length) {
+      events![indexToUpdate] = event;
+      _redrawCalendar();
+    }
+  }
+
+  /// Remove event at index if present.
+  void removeEvent(int indexToRemove) {
+    if (events != null && indexToRemove >= 0 && indexToRemove < events!.length) {
+      events!.removeAt(indexToRemove);
+      _redrawCalendar();
+    }
+  }
+
   /// Clear selected day
   void clearSelected() {
     selectedDate = null;
