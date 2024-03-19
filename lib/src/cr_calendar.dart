@@ -34,8 +34,8 @@ typedef OnTapCallback<T> = Function(List<CalendarEventModel<T>> events, DateTime
 /// * events - Events that happens in selected range
 /// * begin - [DateTime] instance of range beginning
 /// * end - [DateTime] instance of range ending
-typedef OnRangeSelectedCallback = Function(
-    List<CalendarEventModel> events, DateTime? begin, DateTime? end);
+typedef OnRangeSelectedCallback<T> = Function(
+    List<CalendarEventModel<T>> events, DateTime? begin, DateTime? end);
 
 typedef OnDateSelectCallback = Function(DateTime selectedDate);
 
@@ -272,7 +272,7 @@ class CrCalendar<T> extends StatefulWidget {
 
   /// Callback fired when calendar day is tapped in calendar
   /// with [TouchMode.singleTap] touch mode.
-  final OnTapCallback? onDayClicked;
+  final OnTapCallback<T>? onDayClicked;
 
   /// See [WeekDaysBuilder].
   final WeekDaysBuilder? weekDaysBuilder;
