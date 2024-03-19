@@ -27,7 +27,7 @@ typedef OnSwipeCallback = Function(int year, int month);
 ///
 /// * events - Events that happens on selected day,
 /// * day - [DateTime] instance of selected day.
-typedef OnTapCallback = Function(List<CalendarEventModel> events, DateTime day);
+typedef OnTapCallback<T> = Function(List<CalendarEventModel<T>> events, DateTime day);
 
 /// On date range selected callback
 ///
@@ -62,7 +62,7 @@ final class CrCalendarController<T> extends ChangeNotifier {
   DateTime? selectedDate;
 
   /// List of events which are in selected day or selected range.
-  List<CalendarEventModel>? selectedEvents;
+  List<CalendarEventModel<T>>? selectedEvents;
 
   /// See [DateRangeModel].
   DateRangeModel selectedRange = DateRangeModel();

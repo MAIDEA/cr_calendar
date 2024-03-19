@@ -35,8 +35,8 @@ class MonthItem<T> extends StatefulWidget {
 
   final int maxEventLines;
   final int? currentDay;
-  final Function(List<CalendarEventModel>, Jiffy)? onDaySelected;
-  final Function(List<CalendarEventModel>)? onRangeSelected;
+  final Function(List<CalendarEventModel<T>>, Jiffy)? onDaySelected;
+  final Function(List<CalendarEventModel<T>>)? onRangeSelected;
   final Function(Jiffy)? onDayTap;
   final WeekDaysBuilder? weekDaysBuilder;
   final DayItemBuilder? dayItemBuilder;
@@ -198,7 +198,7 @@ class MonthItemState<T> extends State<MonthItem<T>> {
   /// Builds MonthCalendarWidget
   MonthCalendarWidget _getMonthCalendarWidget(
       double itemWidth, double itemHeight) {
-    return MonthCalendarWidget(
+    return MonthCalendarWidget<T>(
       controller: widget.controller,
       key: _monthKey,
       itemWidth: itemWidth,
