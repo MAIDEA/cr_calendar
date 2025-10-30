@@ -25,16 +25,21 @@ List<CalendarEventModel> calculateAvailableEventsForDate(
 }
 
 List<CalendarEventModel> calculateAvailableEventsForRange(
-    List<CalendarEventModel> events, Jiffy? start, Jiffy? end) {
+  List<CalendarEventModel> events,
+  Jiffy? start,
+  Jiffy? end,
+) {
   final eventsHappen = <CalendarEventModel>[];
 
   for (final event in events) {
     final eventStartUtc =
-        DateTime.utc(event.begin.year, event.begin.month, event.begin.day);
+        DateTime.utc(event.begin.year, event.begin.month, event.begin.day)
+            .toJiffy();
     final eventEndUtc =
-        DateTime.utc(event.end.year, event.end.month, event.end.day);
-    if (eventStartUtc.toJiffy().isInRange(start, end) ||
-        eventEndUtc.toJiffy().isInRange(start, end) ||
+        DateTime.utc(event.end.year, event.end.month, event.end.day).toJiffy();
+
+    if (eventStartUtc.isInRange(start, end) ||
+        eventEndUtc.isInRange(start, end) ||
         (start?.isInRange(eventStartUtc, eventEndUtc) ?? false) ||
         (end?.isInRange(eventStartUtc, eventEndUtc) ?? false)) {
       eventsHappen.add(event);

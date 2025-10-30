@@ -44,10 +44,10 @@ class YearPickerWidget extends StatefulWidget {
 }
 
 class _YearPickerWidgetState extends State<YearPickerWidget> {
+  final _itemScrollController = ItemScrollController();
+  final _itemPositionsListener = ItemPositionsListener.create();
+
   int? _pickedYear;
-  final ItemScrollController _itemScrollController = ItemScrollController();
-  final ItemPositionsListener _itemPositionsListener =
-      ItemPositionsListener.create();
 
   @override
   void initState() {
