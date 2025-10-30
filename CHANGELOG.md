@@ -1,6 +1,16 @@
+# 1.3.0
+
+- Upgraded Flutter SDK from 3.10.6 to 3.35.6
+- Updated dependencies
+- Updated platform dependencies in the example project
+- Fixed minor compatibility issue after the upgrade
+
 # 1.2.1
 
 - Updated dependencies
+
+# 1.2.0
+
 - Support for Dart 3.0
 - Added package topics to the pubspec file
 

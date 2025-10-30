@@ -63,11 +63,11 @@ class _CreateEventDialogState extends State<CreateEventDialog> {
                   style: const TextStyle(color: violet, fontSize: 16),
                   decoration: InputDecoration(
                     enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: violet.withOpacity(1)),
+                      borderSide: BorderSide(color: violet.withValues(alpha: 1)),
                     ),
                     hintText: 'Enter the event name',
                     hintStyle:
-                        TextStyle(color: violet.withOpacity(0.6), fontSize: 16),
+                        TextStyle(color: violet.withValues(alpha: 0.6), fontSize: 16),
                   ),
                   controller: _eventNameController,
                 ),
@@ -102,7 +102,7 @@ class _CreateEventDialogState extends State<CreateEventDialog> {
                               foregroundDecoration: BoxDecoration(
                                 border: index == _selectedColorIndex
                                     ? Border.all(
-                                        color: Colors.black.withOpacity(0.3),
+                                        color: Colors.black.withValues(alpha: 0.3),
                                         width: 2)
                                     : null,
                                 shape: BoxShape.circle,

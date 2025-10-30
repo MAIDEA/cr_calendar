@@ -1,8 +1,11 @@
 import 'package:jiffy/jiffy.dart';
 
-extension Ranging on Jiffy {
+extension JiffyExt on Jiffy {
   // ignore: type_annotate_public_apis
-  bool isInRange(first, second) {
+  bool isInRange(Jiffy? first, Jiffy? second) {
+    if (first == null || second == null) {
+      return false;
+    }
     return isSameOrAfter(first) && isSameOrBefore(second);
   }
 }
